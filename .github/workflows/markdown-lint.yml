@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  lint-markdown:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,3 +17,5 @@ jobs:
 
       - name: markdownlint-cli
         uses: nosborn/github-action-markdown-cli@v1.1.1
+        with:
+          files: .
