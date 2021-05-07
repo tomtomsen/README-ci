@@ -1,6 +1,13 @@
-# README CI
+# Continuous Integration on a README
 
-A project to play with CI pipeline and setup a dev environment.
+![README with Continuous Integration Logo](/images/README-logo.png)
+
+A simple README.md file with a lot of Continuous Integration around it.
+
+## Contributing
+
+If you have an idea to improve this project, feel free to add an issue or send
+a pull request.
 
 ## License
 
