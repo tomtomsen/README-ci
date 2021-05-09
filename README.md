@@ -2,7 +2,7 @@
 
 ![README with Continuous Integration Logo](/images/README-logo.png)
 
-A simple README.md file with a lot of Continuous Integration around it.
+A simple `README.md` with a lot of Continuous Integration around it.
 
 ## Validators
 
