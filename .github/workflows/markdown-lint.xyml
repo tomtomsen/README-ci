@@ -1,4 +1,4 @@
-name: CI
+name: Markdown linter
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  lint-markdown:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
