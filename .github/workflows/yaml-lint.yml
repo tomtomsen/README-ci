@@ -17,3 +17,5 @@ jobs:
 
       - name: yamllint
         uses: ibiqlik/action-yamllint@v3.0.1
+        with:
+          strict: true
