@@ -19,3 +19,4 @@ jobs:
         uses: paramt/url-checker@master
         with:
           files: "README.md"
+          blacklist: "README.md"
