@@ -1,0 +1,29 @@
+name: Secure protected files
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: tony84727/changed-file-filter@v0.1.0
+        id: filter
+        with:
+          filters: |
+            LICENSE:
+              - 'LICENSE'
+
+      - name: Test
+        if: steps.filter.outputs.LICENSE == 'true'
+        run: |
+          echo "Do not change LICENSE!"
+          exit 1
