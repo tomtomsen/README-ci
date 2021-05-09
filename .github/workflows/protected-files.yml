@@ -1,4 +1,4 @@
-name: protected-files
+name: Secure protected files
 
 on:
   push:
@@ -9,23 +9,21 @@ on:
   workflow_dispatch:
 
 jobs:
-  protected-files:
+  validate:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
+
       - uses: tony84727/changed-file-filter@v0.1.0
         id: filter
         with:
-          # head: optional head commit SHA, default to ${{ github.event.pull_request.head.sha || github.sha }}
-          # base: optional base commit SHA, default to ${{ github.event.pull_request.base.sha }} or HEAD^ if not triggered by pull_request
-
-          # filter rules in YAML format
-          # <rule-name>:
-          #  - <glob expression>
           filters: |
             LICENSE:
               - 'LICENSE'
+
       - name: Test
         if: steps.filter.outputs.LICENSE == 'true'
-        run: exit 1
+        run: |
+          echo "Do not change LICENSE!"
+          exit 1
