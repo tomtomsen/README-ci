@@ -20,3 +20,8 @@ jobs:
         uses: ibiqlik/action-yamllint@v3.0.1
         with:
           strict: true
+          config_data: |
+            extends: default
+            rules:
+              check-keys: false
+
