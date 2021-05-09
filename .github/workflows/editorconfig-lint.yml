@@ -1,4 +1,4 @@
-name: CI
+name: Editorconfig linter
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  lint-editorconfig:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
