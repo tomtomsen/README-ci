@@ -1,0 +1,21 @@
+name: Url checker
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  lint-markdown:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Check URLs
+        uses: paramt/url-checker@master
+        with:
+          files: "README.md"
