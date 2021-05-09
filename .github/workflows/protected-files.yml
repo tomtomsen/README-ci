@@ -14,16 +14,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: Get changed files
-        uses: lots0logs/gh-action-get-changed-files@2.1.4
+      - uses: tony84727/changed-file-filter@0.1.0
+        id: filter
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          # head: optional head commit SHA, default to ${{ github.event.pull_request.head.sha || github.sha }}
+          # base: optional base commit SHA, default to ${{ github.event.pull_request.base.sha }} or HEAD^ if not triggered by pull_request
 
-      - name: Output
-        run: |
-          cat ${HOME}/files.json
-          cat ${HOME}/files_modified.json
-          cat ${HOME}/files_added.json
-          cat ${HOME}/files_deleted.json
-          cat ${HOME}/files_renamed.json
+          # filter rules in YAML format
+          # <rule-name>:
+          #  - <glob expression>
+          filters: |
+            LICENSE:
+              - 'LICENSE'
+      - name: Test
+        if: steps.filter.outputs.LICENSE == 'true'
+        run: exit 1
